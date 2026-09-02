@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BJMP ID Verification Portal</title>
+  <title>BJMP | iVerify</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="card">
-  <h2>BJMP ID Verification System</h2>
+  <div class="logo-container">
+    <img src="logo.png" alt="DPRM Logo" class="brand-logo">
+  </div>
   
+  <h2>iVerify</h2>
+  <p class="subtitle">BJMP ID VERIFICATION SYSTEM</p>
+  
+  <!-- Stacked Form Controls -->
   <div class="form-group">
-    <input type="text" id="idInput" placeholder="Enter Number">
-    <button id="verifyBtn">Verify</button>
+    <input type="text" id="idInput" placeholder="Enter ID Number">
+    <button id="verifyBtn">VERIFY</button>
   </div>
 
   <div id="loader" class="loader">Verifying record...</div>
@@ -21,7 +28,7 @@
 
   <div id="resultContainer">
     <div class="data-row">
-      <div class="data-label">ID Code</div>
+      <div class="data-label">ID Number</div>
       <div class="data-value" id="resId"></div>
     </div>
     <div class="data-row">
@@ -36,6 +43,10 @@
       <div class="data-label">Status</div>
       <div class="data-value"><span id="resValidity" class="badge"></span></div>
     </div>
+  </div>
+
+  <div class="card-footer">
+    <p class="copyright-text">© 2026 Developed by DPRM ICT DevTeam</p>
   </div>
 </div>
 
