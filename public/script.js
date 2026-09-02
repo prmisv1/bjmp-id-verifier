@@ -37,7 +37,7 @@ async function verifyID() {
   const resultContainer = document.getElementById("resultContainer");
 
   if (!idInput) {
-    statusMessage.textContent = "Please enter an ID Code.";
+    statusMessage.textContent = "Please enter an ID Number.";
     resultContainer.style.display = "none";
     return;
   }
