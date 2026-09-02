@@ -190,8 +190,14 @@ button:disabled {
   font-weight: 600;
 }
 
+.divider {
+  border: none;
+  border-top: 1px solid #e1e8ed;
+  margin: 25px 0 20px 0;
+}
+
 .card-footer {
-  margin-top: 25px;
+  margin-top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -231,10 +237,4 @@ button:disabled {
   color: #718096;
   font-style: italic;
   margin-bottom: 6px;
-}
-
-.copyright-text {
-  font-size: 0.73rem;
-  color: #a0aec0;
-  font-weight: 500;
 }
