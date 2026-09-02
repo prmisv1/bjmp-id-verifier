@@ -1,22 +1,32 @@
 export default async function handler(req, res) {
-  const { id } = req.query;
+  const { id, lastName } = req.query;
 
-  if (!id) {
-    return res.status(400).json({ status: "error", message: "No ID provided" });
+  if (!id || !lastName) {
+    return res.status(400).json({ 
+      status: "error", 
+      message: "Both ID Number and Last Name are required" 
+    });
   }
 
   const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL;
 
   if (!googleScriptUrl) {
-    return res.status(500).json({ status: "error", message: "Server configuration error: Missing API URL" });
+    return res.status(500).json({ 
+      status: "error", 
+      message: "Server configuration error: Missing API URL" 
+    });
   }
 
   try {
-    const response = await fetch(`${googleScriptUrl}?id=${encodeURIComponent(id)}`);
+    const targetUrl = `${googleScriptUrl}?id=${encodeURIComponent(id)}&lastName=${encodeURIComponent(lastName)}`;
+    const response = await fetch(targetUrl);
     const data = await response.json();
 
     return res.status(200).json(data);
   } catch (error) {
-    return res.status(500).json({ status: "error", message: "Failed to connect to verification database" });
+    return res.status(500).json({ 
+      status: "error", 
+      message: "Failed to connect to verification database" 
+    });
   }
 }
