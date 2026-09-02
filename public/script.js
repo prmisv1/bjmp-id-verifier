@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
   const verifyBtn = document.getElementById("verifyBtn");
   const idInput = document.getElementById("idInput");
+  const lastNameInput = document.getElementById("lastNameInput");
 
   verifyBtn.addEventListener("click", verifyID);
   
-  idInput.addEventListener("keypress", (event) => {
+  const handleEnterKey = (event) => {
     if (event.key === "Enter") {
       verifyID();
     }
-  });
+  };
+
+  idInput.addEventListener("keypress", handleEnterKey);
+  lastNameInput.addEventListener("keypress", handleEnterKey);
 });
 
 function maskName(fullName) {
@@ -31,6 +35,7 @@ function maskName(fullName) {
 }
 
 async function verifyID() {
+  const lastNameInput = document.getElementById("lastNameInput").value.trim();
   const idInput = document.getElementById("idInput").value.trim();
   const verifyBtn = document.getElementById("verifyBtn");
   const btnText = document.getElementById("btnText");
@@ -38,8 +43,8 @@ async function verifyID() {
   const statusMessage = document.getElementById("statusMessage");
   const resultContainer = document.getElementById("resultContainer");
 
-  if (!idInput) {
-    statusMessage.textContent = "Please enter an ID Number.";
+  if (!lastNameInput || !idInput) {
+    statusMessage.textContent = "Please fill in both Last Name and ID Number.";
     resultContainer.style.display = "none";
     return;
   }
@@ -51,7 +56,8 @@ async function verifyID() {
   btnSpinner.style.display = "inline-block";
 
   try {
-    const response = await fetch(`/api/server?id=${encodeURIComponent(idInput)}`);
+    const queryParams = `?id=${encodeURIComponent(idInput)}&lastName=${encodeURIComponent(lastNameInput)}`;
+    const response = await fetch(`/api/server${queryParams}`);
     const result = await response.json();
 
     if (result.status === "success") {
@@ -76,7 +82,6 @@ async function verifyID() {
     statusMessage.textContent = "Error connecting to the verification database.";
     console.error(error);
   } finally {
-    
     verifyBtn.disabled = false;
     btnText.style.display = "inline";
     btnSpinner.style.display = "none";
