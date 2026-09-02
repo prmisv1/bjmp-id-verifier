@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BJMP ID Verification Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+  <h2>BJMP ID Verification System</h2>
+  
+  <div class="form-group">
+    <input type="text" id="idInput" placeholder="Enter Number">
+    <button id="verifyBtn">Verify</button>
+  </div>
+
+  <div id="loader" class="loader">Verifying record...</div>
+  <div id="statusMessage" class="status-msg"></div>
+
+  <div id="resultContainer">
+    <div class="data-row">
+      <div class="data-label">ID Code</div>
+      <div class="data-value" id="resId"></div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Rank</div>
+      <div class="data-value" id="resRank"></div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Full Name</div>
+      <div class="data-value" id="resName"></div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Validity Status</div>
+      <div class="data-value"><span id="resValidity" class="badge"></span></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
