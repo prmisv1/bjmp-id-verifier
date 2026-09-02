@@ -2,11 +2,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
 
 body {
-  background-color: #f4f6f9;
+  background-color: #f4f7fa;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,58 +17,96 @@ body {
 .card {
   background: #ffffff;
   width: 100%;
-  max-width: 420px;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 440px;
+  padding: 40px 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.brand-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
 }
 
 h2 {
-  text-align: center;
-  color: #1a252f;
-  margin-bottom: 20px;
-  font-size: 1.4rem;
+  color: #1c2d42;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #8c9ba5;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
 }
 
 .form-group {
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 15px;
 }
 
 input[type="text"] {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
+  width: 100%;
+  padding: 14px 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e1e8ed;
+  border-radius: 10px;
   font-size: 0.95rem;
+  text-align: center;
+  color: #2c3e50;
   outline: none;
+  transition: all 0.2s ease;
 }
 
 input[type="text"]:focus {
-  border-color: #0056b3;
+  background-color: #ffffff;
+  border-color: #1b365d;
+  box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.1);
 }
 
 button {
-  padding: 12px 18px;
-  background-color: #0056b3;
-  color: white;
+  width: 100%;
+  padding: 14px;
+  background-color: #1b365d; /* Dark navy color matching the design */
+  color: #ffffff;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-  background-color: #004085;
+  background-color: #12243e;
+}
+
+button:active {
+  transform: scale(0.99);
 }
 
 #resultContainer {
   display: none;
-  margin-top: 15px;
-  border-top: 1px solid #eeeeee;
-  padding-top: 15px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f4f8;
+  text-align: left;
 }
 
 .data-row {
@@ -76,48 +114,68 @@ button:hover {
 }
 
 .data-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  color: #6c757d;
-  font-weight: 600;
+  color: #8c9ba5;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .data-value {
-  font-size: 1rem;
-  color: #212529;
-  font-weight: 500;
+  font-size: 0.95rem;
+  color: #1c2d42;
+  font-weight: 600;
   margin-top: 2px;
 }
 
 .badge {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: bold;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .badge-active {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #e6f4ea;
+  color: #137333;
 }
 
 .badge-inactive {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: #fce8e6;
+  color: #c5221f;
 }
 
 .status-msg {
-  text-align: center;
-  color: #6c757d;
-  font-size: 0.9rem;
+  color: #e53e3e;
+  font-size: 0.85rem;
   margin-top: 10px;
 }
 
 .loader {
   display: none;
-  text-align: center;
   margin: 15px 0;
-  color: #0056b3;
-  font-weight: bold;
+  color: #1b365d;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.card-footer {
+  margin-top: 25px;
+  padding-top: 18px;
+  border-top: 1px solid #f0f4f8;
+}
+
+.confidential-text {
+  font-size: 0.73rem;
+  color: #718096;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.copyright-text {
+  font-size: 0.73rem;
+  color: #a0aec0;
+  font-weight: 500;
 }
