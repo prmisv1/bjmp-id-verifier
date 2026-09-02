@@ -11,14 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Helper function to mask each word in the full name
 function maskName(fullName) {
   if (!fullName) return "";
   
   return fullName
     .split(" ")
     .map(word => {
-      // If the word has 2 or fewer characters (e.g., "C", "De"), return as-is or handle short words
       if (word.length <= 2) {
         return word;
       }
@@ -57,8 +55,6 @@ async function verifyID() {
     if (result.status === "success") {
       document.getElementById("resId").textContent = result.data.idCode;
       document.getElementById("resRank").textContent = result.data.rank;
-      
-      // Apply the masking function to the Name before rendering
       document.getElementById("resName").textContent = maskName(result.data.name);
       
       const validityBadge = document.getElementById("resValidity");
