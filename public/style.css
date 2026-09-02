@@ -192,8 +192,38 @@ button:disabled {
 
 .card-footer {
   margin-top: 25px;
-  padding-top: 18px;
-  border-top: 1px solid #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f4f8fd;
+  border: 1px solid #e1eaf5;
+  padding: 6px 16px;
+  border-radius: 50px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  font-size: 0.82rem;
+}
+
+.terminal-icon {
+  color: #2563eb;
+  font-family: monospace, monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.dev-text {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.dev-team {
+  color: #2563eb;
+  font-weight: 600;
 }
 
 .confidential-text {
