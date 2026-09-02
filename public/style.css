@@ -44,6 +44,11 @@ h2 {
   margin-bottom: 4px;
 }
 
+h2 i {
+  color: #3786e6;
+  font-style: italic;
+}
+
 .subtitle {
   color: #8c9ba5;
   font-size: 0.78rem;
